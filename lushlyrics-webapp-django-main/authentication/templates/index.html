@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Auth0</title>
+    <!-- Load the static tag -->
+    {% load static %}
+
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" type="text/css" href="{% static 'admin/css/styles.css' %}">
+</head>
+<body>
+    <div class="container">
+        {% if session %}
+        <h1>Welcome {{session.userinfo.name}}!</h1>
+        <p><a href="{% url 'default' %}">Spotify</a></p>
+        <br> <br>
+        <p><a href="{% url 'logout' %}">Logout</a></p>
+        {% else %}
+        <h1>Welcome Guest</h1>
+        <p><a href="{% url 'login' %}">Login</a></p>
+        {% endif %}
+    </div>
+</body>
+</html>
